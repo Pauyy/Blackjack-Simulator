@@ -271,14 +271,20 @@ int main(int argc, char** argv){
 					std::cin >> action;
 					if(action == 1){//Stay
 						player->isPlaying = 0;
-					} else if(action == 2){//Hit
+					} else if(action == 2 || action == 3){//Hit or double
 						struct Card card;
 						getRandomCard(&card);
 						addCard(player, &card);
 						std::cout << "deal|p" << i << "|" << cardToString(card) << std::endl;
 						//TODO maybe tell that the player busted
 						//printHand(player);
-						player->isPlaying = !checkBust(player);
+						if(action == 3){
+							player->chips -= player->bet;
+							player->bet += player->bet;
+							player->isPlaying = 0;
+						} else {
+							player->isPlaying = !checkBust(player);
+						}
 					}
 				}
 			}

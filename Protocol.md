@@ -34,11 +34,12 @@ Suit
 |Diamond|d|
 
 ### Actions
-There are 2 Actions that can be performed  
+There are 3 Actions that can be performed  
 |Corresponding Number|Action|
 |---|---|
 |1|Stay|
 |2|Hit|
+|3|Double|
 
 #### Hit
 Prompts that the player will take another card
