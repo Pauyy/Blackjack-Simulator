@@ -122,6 +122,7 @@ void printHand(Player* player){
 
 char getHandValue(Player* player){
 	char handValue = 0;
+	char aces = 0;
 	Card* cards = player->currentHandCards;
 	int i;
 	for(i = 0; i < 10; i++){
@@ -129,13 +130,19 @@ char getHandValue(Player* player){
 			if(cards[i].value < 8)
 				handValue += cards[i].value + 2;
 			else if (cards[i].value == 12)
-				handValue += 11;
+				aces += 1;
 			else
 				handValue +=10;
 			//handValue += cards[i].value < 8 ? cards[i].value + 2 : cards[i].value == 12 ? 11 : 10;
 		} else {
 			break;
 		}
+	}
+	for(i = 0; i < aces; i++){
+		if(handValue + 11 <= 21)
+			handValue += 11;
+		else
+			handValue += 1;
 	}
 	return handValue;
 }

@@ -7,7 +7,6 @@ It is still in an early stage and a lot of stuff is missing.
 ## Missing Stuff
 No double  
 No split  
-No 11 or 1 point for an ace  
 No automatic reshuffling the deck  
 No mention of a bust before showdown  
 
