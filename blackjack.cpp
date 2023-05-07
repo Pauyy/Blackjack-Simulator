@@ -182,6 +182,7 @@ int main(int argc, char** argv){
 	
 	struct Player players[numOfPlayers];
 	/*Initialize Player*/
+	players[0].isPlaying = 1;
 	int i;
 	for(i = 0; i < numOfPlayers; i++){
 		Player* player = &players[i];
@@ -220,10 +221,12 @@ int main(int argc, char** argv){
 
 		/*Deal Card*/
 		for(i = 0; i < numOfPlayers * 2/*loop 2 times*/; i++){
-			struct Card card;
-			getRandomCard(&card);
-			addCard(&players[i % numOfPlayers], &card);
-			std::cout << "deal|p" << i % numOfPlayers << "|" << cardToString(card) << std::endl;
+			if(players[i % numOfPlayers].isPlaying){
+				struct Card card;
+				getRandomCard(&card);
+				addCard(&players[i % numOfPlayers], &card);
+				std::cout << "deal|p" << i % numOfPlayers << "|" << cardToString(card) << std::endl;
+			}
 		}
 		/*Cards dealt*/
 		
