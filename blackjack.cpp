@@ -174,6 +174,12 @@ void clearAllHands(Player* players){
 	}
 }
 
+void shuffleCards(){
+	playedCards = 0;
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+	std::shuffle(&cards[0], &cards[207], std::default_random_engine(seed));
+}
+
 int main(int argc, char** argv){
 	std::cout << "Number of Players|";
 	std::cin >> numOfPlayers; numOfPlayers++;
@@ -201,8 +207,7 @@ int main(int argc, char** argv){
 	for(i = 0; i < 208; i++){
 		cards[i]= i;
 	}
-	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-	std::shuffle(&cards[0], &cards[207], std::default_random_engine(seed));
+	shuffleCards();
 	/*Shuffled*/
 	
 	short gameOn = 1;
@@ -334,6 +339,12 @@ int main(int argc, char** argv){
 		/*Clear Hands*/
 		clearAllHands(players);
 		std::cout << "remainingCards|" << 208 - playedCards << std::endl;
+		short shuffle;
+		std::cout << "shuffleCards|";
+		std::cin >> shuffle;
+		if(shuffle)
+			shuffleCards();
+		
 		std::cout << "nextroud|";
 		std::cin >> gameOn;
 	}

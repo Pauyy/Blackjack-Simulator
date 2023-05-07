@@ -104,6 +104,7 @@ Output: `overview|pn|chips|123` where `n` is the number of the Player and `123` 
 # 8. Loop
 After one Round was played the game can go on  
 Output: `remainingCards|208` where 208 is the number of remaining cards  
+Output: `shuffleCards|` expected input: `0` for no shuffeling or anything else for shuffeling
 Output: `nextround|` expected input: `0` for stopping the game anythin else for playing another round  
 
 
