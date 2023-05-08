@@ -139,7 +139,7 @@ char getHandValue(Player* player){
 		}
 	}
 	for(i = 0; i < aces; i++){
-		if(handValue + 11 <= 21)
+		if(handValue + 11 <= 21 - (aces-1))//AAT would have been 22 before but it is actually 12
 			handValue += 11;
 		else
 			handValue += 1;
